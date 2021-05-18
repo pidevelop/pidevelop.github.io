@@ -734,7 +734,7 @@ function NetworkFilter(data, callback)
 
 $(function () {
     LoadEnvironment();
-
+/*
     $.fn.extend({ 
         disableSelection : function() { 
                 this.each(function() { 
@@ -745,7 +745,7 @@ $(function () {
                 }); 
         } 
     });
-
+*/
     var debug = getURLParams('debug');
     if (debug == 1) {
         var vConsole = new VConsole();
