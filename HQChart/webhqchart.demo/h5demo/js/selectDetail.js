@@ -942,6 +942,9 @@ else if(item.outerText!="MA" && item.outerText!="BOLL") {
     JSEnvironment.StockCache.NetworkFilter=NetworkFilter;
     var arySymbol = new Array();
     arySymbol.push(JSEnvironment.Symbol);
+
+alert("StockCache "+JSEnvironment.StockCache);
+
     UpdateMain(null, null, null, JSEnvironment.StockCache);
     updateMinute(null, null, null, JSEnvironment.StockCache); //明细
     updateMinuteFive(null, null, null, JSEnvironment.StockCache); //五档
