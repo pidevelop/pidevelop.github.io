@@ -461,6 +461,9 @@ function UpdateMain(id, arySymbol, dataType, jsStock) {  //获得股票基础数
 */
 yClose=_yclose();
 var tclose=_latest(_close);
+
+alert("set "+tclose);
+
 pageData.set('price', tclose);
 pageData.set('rise', tclose-yClose);
 pageData.set('riseRate', (tclose-yClose)/yClose*100);
@@ -490,6 +493,8 @@ pageData.set('vol', _latest(_vol));
     } else if (timeStr.length == 6) {
         $(".exchangeInfo .time").html(timeStr.substring(0, 2) + "&nbsp;:&nbsp;" + timeStr.substring(2, 4) + "&nbsp;:&nbsp;" + timeStr.substring(4, 6));
     }
+
+alert("get "+pageData.get('price'));
 
     $(".priceCurrentNum").html(pageData.get('price'));
     $(".priceCurrent .riseNum").html(pageData.get('rise'));
