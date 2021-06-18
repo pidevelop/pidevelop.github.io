@@ -44,7 +44,7 @@ function _getprice(e) {
 
 //全局的环境变量
 var JSEnvironment = {
-    Symbol: '600000.sh', //股票代码
+    Symbol: '300782.sz', //股票代码
     //Symbol:'000001.sz',     //股票代码
     KLineIndex: [   //K线指标
         { Name: 'MA', Index: 'MA' },
@@ -462,8 +462,6 @@ function UpdateMain(id, arySymbol, dataType, jsStock) {  //获得股票基础数
 yClose=_yclose();
 var tclose=_latest(_close);
 
-alert("set "+tclose);
-
 pageData.set('price', tclose);
 pageData.set('rise', tclose-yClose);
 pageData.set('riseRate', (tclose-yClose)/yClose*100);
@@ -493,8 +491,6 @@ pageData.set('vol', _latest(_vol));
     } else if (timeStr.length == 6) {
         $(".exchangeInfo .time").html(timeStr.substring(0, 2) + "&nbsp;:&nbsp;" + timeStr.substring(2, 4) + "&nbsp;:&nbsp;" + timeStr.substring(4, 6));
     }
-
-alert("get "+pageData.get('price'));
 
     $(".priceCurrentNum").html(pageData.get('price'));
     $(".priceCurrent .riseNum").html(pageData.get('rise'));
@@ -947,8 +943,6 @@ else if(item.outerText!="MA" && item.outerText!="BOLL") {
     JSEnvironment.StockCache.NetworkFilter=NetworkFilter;
     var arySymbol = new Array();
     arySymbol.push(JSEnvironment.Symbol);
-
-alert("StockCache "+JSEnvironment.StockCache);
 
     UpdateMain(null, null, null, JSEnvironment.StockCache);
     updateMinute(null, null, null, JSEnvironment.StockCache); //明细
