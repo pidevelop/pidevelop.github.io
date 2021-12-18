@@ -536,19 +536,21 @@ function updateMinuteFive(id, arySymbol, dataType, jsStock) { //五档选项内�
 
     read.EndRead();
     if (sellData && sellData.length == 5) {
-        $(".tableOne").html("");
+        $(".tableOne").html("<tr><td>卖</td></tr>");
         for (var i in sellData) {
             var dataN = sellData[i];
-            var arr = lang?[translation["卖一"][transindex[lang]],translation["卖二"][transindex[lang]],translation["卖三"][transindex[lang]],translation["卖四"][transindex[lang]],translation["卖五"][transindex[lang]]]:["卖一", "卖二", "卖三", "卖四", "卖五"];
+//            var arr = lang?[translation["卖一"][transindex[lang]],translation["卖二"][transindex[lang]],translation["卖三"][transindex[lang]],translation["卖四"][transindex[lang]],translation["卖五"][transindex[lang]]]:["卖一", "卖二", "卖三", "卖四", "卖五"];
+            var arr = ["1", "2", "3", "4", "5"];
             var tr1 = "<tr><td>" + arr[i] + "</td><td onclick='_getprice(this)' class='color-change "+_color(dataN.Price)+"'>" + (dataN.Price!="-"?dataN.Price.toFixed(2):dataN.Price) + "</td><td>" + _volfmt(dataN.Vol) + "</td></tr>";
             $(".tableOne").prepend(tr1);
         }
     }
     if (buyData && buyData.length == 5) {
-        $(".tableTwo").html("");
+        $(".tableTwo").html("<tr><td>买</td></tr>");
         for (var i in buyData) {
             var dataM = buyData[i];
-            var arr = lang?[translation["买一"][transindex[lang]],translation["买二"][transindex[lang]],translation["买三"][transindex[lang]],translation["买四"][transindex[lang]],translation["买五"][transindex[lang]]]:["买一", "买二", "买三", "买四", "买五"];
+//            var arr = lang?[translation["买一"][transindex[lang]],translation["买二"][transindex[lang]],translation["买三"][transindex[lang]],translation["买四"][transindex[lang]],translation["买五"][transindex[lang]]]:["买一", "买二", "买三", "买四", "买五"];
+            var arr = ["1", "2", "3", "4", "5"];
             var tr2 = "<tr><td>" + arr[i] + "</td><td onclick='_getprice(this)' class='color-change "+_color(dataM.Price)+"'>" + (dataM.Price!="-"?dataM.Price.toFixed(2):dataM.Price) + "</td><td>" + _volfmt(dataM.Vol) + "</td></tr>";
             $(".tableTwo").append(tr2);
         }
