@@ -103,6 +103,7 @@ var pageData = new Map();
 
 
 function tometric(n){
+   if (typeof n!="number") return n;
    if (n < 10000)
        return n;
    else if (n < 1000000)
