@@ -1,6 +1,25 @@
 ﻿const _open=1,_close=2,_high=3,_low=4,_vol=5,_amt=6;
 var _dayopen=0, yClose=0;
 
+function _setcolors(){
+   var l=localStorage;
+   function _setcolor(k,v){
+	var s=document.styleSheets;
+	for(var i=0;i<s.length;i++)
+	   for(var j=0;j<s[i].cssRules.length;j++){
+		if(s[i].cssRules[j].selectorText==k){
+		    s[i].cssRules[j].style.color=v;
+		    return;
+		}
+	   }
+   }
+
+   _setcolor(".upColor",l.upcolor||"rgb(238,21,21)");	//default red
+   _setcolor(".lowColor",l.downcolor||"rgb(25,158,0)");	//default green
+}
+
+_setcolors();
+
 function _latest(f) {
    if(!window.minutedata || minutedata.length==0) return 0;
    switch(f) {
