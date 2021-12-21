@@ -102,6 +102,19 @@ var JSEnvironment = {
 var pageData = new Map();
 
 
+function tometric(n){
+   if (n < 10000)
+       return n;
+   else if (n < 1000000)
+       return (n/1000).toFixed(2)+"K";
+   else if (n < 1000000000)
+       return (n/1000000).toFixed(2)+"M";
+   else if (n < 1000000000000)
+       return (n/1000000000).toFixed(2)+"B";
+   else 
+       return (n/1000000000000).toFixed(2)+"T";
+}
+
 function getURLParams(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var r = window.location.search.substr(1).match(reg);
@@ -111,6 +124,7 @@ function getURLParams(name) {
 
 //数字金额转中文单位
 function numToCUnit(num) {
+if(lang!="CN")return tometric(num);
     if (num < 100000000) {
         return Number(num / 10000).toFixed(2) + '万';
     } else {
@@ -531,6 +545,7 @@ function updateMinuteFive(id, arySymbol, dataType, jsStock) { //五档选项内�
 	}
 
 	function _volfmt(vol){
+if(lang!="CN")return tometric(vol);
 		return (vol>=100000?vol>=100000000?Math.trunc(vol/100000000)+"亿":Math.trunc(vol/10000)+"万":vol)
 	}
 
@@ -575,6 +590,7 @@ function updateMinute(id, arySymbol, dataType, jsStock) { //明细选项内容
 	}
 
 	function _volfmt(vol){
+if(lang!="CN")return tometric(vol);
 		return (vol>=100000?vol>=100000000?Math.trunc(vol/100000000)+"亿":Math.trunc(vol/10000)+"万":vol)
 	}
 
@@ -886,12 +902,12 @@ window.chartdata.viewperiod='05';
 
     //收缩股票信息
     $(".shrinkBtn").click(function () {
-        $(".exchangeInfoT").toggle();
-        $(".shrinkBtn").toggleClass('open');
+///        $(".exchangeInfoT").toggle();
+///       $(".shrinkBtn").toggleClass('open');
     });
     $(".exchangeData .priceHL,.exchangeData .priceOpen,.exchangeData .priceAmount").click(function () {
-        $(".exchangeInfoT").show();
-        $(".shrinkBtn").addClass('open');
+///        $(".exchangeInfoT").show();
+///        $(".shrinkBtn").addClass('open');
     });
     $(".exchangeInfoT").click(function () {
         $(this).hide();
