@@ -566,7 +566,7 @@ function updateMinuteFive(id, arySymbol, dataType, jsStock) { //五档选项内�
 	}
 
 	function _volfmt(vol){
-if(vol>=10) vol=Math.round(vol);
+vol=vol>=10?Math.round(vol):Number(Number(vol).toFixed(4));
 if(lang!="CN")return tometric(vol);
 		return (vol>=100000?vol>=100000000?Math.trunc(vol/100000000)+"亿":Math.trunc(vol/10000)+"万":vol)
 	}
@@ -612,7 +612,7 @@ function updateMinute(id, arySymbol, dataType, jsStock) { //明细选项内容
 	}
 
 	function _volfmt(vol){
-if(vol>=10) vol=Math.round(vol);
+vol=vol>=10?Math.round(vol):Number(Number(vol).toFixed(4));
 if(lang!="CN")return tometric(vol);
 		return (vol>=100000?vol>=100000000?Math.trunc(vol/100000000)+"亿":Math.trunc(vol/10000)+"万":vol)
 	}
