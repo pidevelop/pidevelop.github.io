@@ -144,6 +144,7 @@ function getURLParams(name) {
 
 //数字金额转中文单位
 function numToCUnit(num) {
+if(num>=10) num=Math.round(num);
 if(lang!="CN")return tometric(num);
     if (num < 100000000) {
         return Number(num / 10000).toFixed(2) + '万';
@@ -565,6 +566,7 @@ function updateMinuteFive(id, arySymbol, dataType, jsStock) { //五档选项内�
 	}
 
 	function _volfmt(vol){
+if(vol>=10) vol=Math.round(vol);
 if(lang!="CN")return tometric(vol);
 		return (vol>=100000?vol>=100000000?Math.trunc(vol/100000000)+"亿":Math.trunc(vol/10000)+"万":vol)
 	}
@@ -610,6 +612,7 @@ function updateMinute(id, arySymbol, dataType, jsStock) { //明细选项内容
 	}
 
 	function _volfmt(vol){
+if(vol>=10) vol=Math.round(vol);
 if(lang!="CN")return tometric(vol);
 		return (vol>=100000?vol>=100000000?Math.trunc(vol/100000000)+"亿":Math.trunc(vol/10000)+"万":vol)
 	}
