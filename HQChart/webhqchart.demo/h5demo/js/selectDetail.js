@@ -578,7 +578,7 @@ if(lang!="CN")return tometric(vol);
             var dataN = sellData[i];
 //            var arr = lang?[translation["卖一"][transindex[lang]],translation["卖二"][transindex[lang]],translation["卖三"][transindex[lang]],translation["卖四"][transindex[lang]],translation["卖五"][transindex[lang]]]:["卖一", "卖二", "卖三", "卖四", "卖五"];
             var arr = ["1", "2", "3", "4", "5"];
-            var tr1 = "<tr><td>" + arr[i] + "</td><td onclick='_getprice(this)' class='color-change "+_color(dataN.Price)+"'>" + (dataN.Price!="-"?dataN.Price.toFixed(2):dataN.Price) + "</td><td>" + _volfmt(dataN.Vol) + "</td></tr>";
+            var tr1 = "<tr><td>" + arr[i] + "</td><td onclick='_getprice(this)' class='color-change "+_color(dataN.Price)+"'>" + (dataN.Price!="-"?dataN.Price.toFixed(2):dataN.Price) + "</td><td>" + (dataN.Vol!="-"?_volfmt(dataN.Vol):dataN.Vol) + "</td></tr>";
             $(".tableOne").prepend(tr1);
         }
     }
@@ -588,7 +588,7 @@ if(lang!="CN")return tometric(vol);
             var dataM = buyData[i];
 //            var arr = lang?[translation["买一"][transindex[lang]],translation["买二"][transindex[lang]],translation["买三"][transindex[lang]],translation["买四"][transindex[lang]],translation["买五"][transindex[lang]]]:["买一", "买二", "买三", "买四", "买五"];
             var arr = ["1", "2", "3", "4", "5"];
-            var tr2 = "<tr><td>" + arr[i] + "</td><td onclick='_getprice(this)' class='color-change "+_color(dataM.Price)+"'>" + (dataM.Price!="-"?dataM.Price.toFixed(2):dataM.Price) + "</td><td>" + _volfmt(dataM.Vol) + "</td></tr>";
+            var tr2 = "<tr><td>" + arr[i] + "</td><td onclick='_getprice(this)' class='color-change "+_color(dataM.Price)+"'>" + (dataM.Price!="-"?dataM.Price.toFixed(2):dataM.Price) + "</td><td>" + (dataM.Vol!="-"?_volfmt(dataM.Vol):dataM.Vol) + "</td></tr>";
             $(".tableTwo").append(tr2);
         }
     }
